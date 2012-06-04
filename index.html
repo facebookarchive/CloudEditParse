@@ -44,8 +44,10 @@
         
         <label for='body'>Body</label>
         <textarea name='body'><%= model.get('body') || '' %></textarea>
-        
-        <button><%= model.isNew() ? 'Create' : 'Save' %></button>
+
+        <% if(editable) { %>
+          <button><%= model.isNew() ? 'Create' : 'Save' %></button>
+        <% } %>
       </form>
     </script>
           
