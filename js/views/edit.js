@@ -6,7 +6,8 @@ App.Views.Edit = Backbone.View.extend({
   initialize: function() {
     _.bindAll(this, 'render');
     this.model.bind('change', this.render);
-    this.editable = this.model.getACL().getWriteAccess(Parse.User.current().id);
+    var acl = this.model.getACL();
+    this.editable = acl ? acl.getWriteAccess(Parse.User.current().id) : true;
     this.render();
   },
   
